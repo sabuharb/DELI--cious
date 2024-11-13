@@ -22,4 +22,8 @@ public void generateReceipt() {
     System.out.println("Generating receipt..");
     FileManager fileManager = new FileManager();
     fileManager.writereceipt(productList);
+
 }
+
+}
+
