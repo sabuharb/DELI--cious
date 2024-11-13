@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UserInterface {
     private Scanner scanner = new Scanner(System.in);
 
-    public void displayMenu() {
+    public void displayHomeScreen() {
         System.out.println("Welcome to DELI-cious!");
         boolean running = true;
 
@@ -18,9 +18,20 @@ public class UserInterface {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case
+                case 1:
+                    handleNewOrder();
+                    break;
+                case 0:
+                    running = false;
+                    System.out.println("Thank you for using DELI--cious!");
+                    break;
+                default:
+                    System.out.println("Invalid choice, please try again.");
             }
         }
     }
 
+private void handleNewOrder() {
+    OrderScreen orderScreen = new OrderScreen();}
+    orderScreen.startOrder();
 }
