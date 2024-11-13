@@ -11,9 +11,9 @@ public class UserInterface {
 
         while (running) {
             System.out.print("""
-                    1) New Order;
-                    0) Exit;
-                   """);
+                     1) New Order;
+                     0) Exit;
+                    """);
             System.out.println("Enter choice: ");
             int choice = scanner.nextInt();
 
@@ -30,8 +30,6 @@ public class UserInterface {
             }
         }
     }
-
-private void handleNewOrder() {
-    OrderScreen orderScreen = new OrderScreen();}
-    orderScreen.startOrder();
 }
+
+
