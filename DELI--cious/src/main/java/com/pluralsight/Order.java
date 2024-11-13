@@ -12,18 +12,15 @@ public class Order {
 
     public void calculateTotal() {
         double total = 0;
-        total += product.getPrice();
+        for (Product product : productList) {
+            total += product.getPrice();
+        }
+        System.out.println("Total cost: $" + total);
     }
 
-    System.out.println("Total cost: $" + total);
+    public void generateReceipt() {
+        System.out.println("Generating receipt...");
+        FileManager fileManager = new FileManager();
+        fileManager.writeReceipt(productList);
+    }
 }
-
-public void generateReceipt() {
-    System.out.println("Generating receipt..");
-    FileManager fileManager = new FileManager();
-    fileManager.writereceipt(productList);
-
-}
-
-}
-

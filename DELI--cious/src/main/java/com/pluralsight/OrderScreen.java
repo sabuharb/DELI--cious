@@ -6,7 +6,7 @@ public class OrderScreen {
     private Order order = new Order();
     private Scanner scanner = new Scanner(System.in);
 
-    public void displayOrderScreen() {
+    public void startOrder() {
         boolean ordering = true;
 
         while (ordering) {
@@ -22,7 +22,7 @@ public class OrderScreen {
 
             switch (choice) {
                 case 1:
-                    addSandwhich();
+                    addSandwich();
                     break;
                 case 2:
                     addDrink();
@@ -46,7 +46,7 @@ public class OrderScreen {
         }
     }
 
-    private void addSandwhich() {
+    private void addSandwich() {
         System.out.println("Adding a sandwich...");
         // Poner Sandguche con logica de personalizacion detallada
         order.addProduct(new Sandwich("Custom Sandwich", 7.00)); //El Precio de ejemplo
