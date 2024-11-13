@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-public abstract class Product implements PricingInterface {
+public abstract class Product implements Pricing {
     protected String name;
     protected double price;
 

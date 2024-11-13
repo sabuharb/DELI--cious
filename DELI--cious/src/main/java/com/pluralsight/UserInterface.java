@@ -42,12 +42,37 @@ public class UserInterface {
 
     private void displaySandwichPrices() {
         System.out.println("\nSandwich Prices:");
-        System.out.println("");
+        System.out.printf("4\" Sandwich - $%.2f\n", Pricing.SANDWICH_PRICE_4);
+        System.out.printf("8\" Sandwich - $%.2f\n", Pricing.SANDWICH_PRICE_8);
+        System.out.printf("12\" Sandwich - $%.2f\n", Pricing.SANDWICH_PRICE_12);
+
+        System.out.println("\nTopping Prices:");
+        System.out.printf("Meat (4\") - $%.2f, Extra Meat - $%.2f\n", Pricing.EXTRA_MEAT_PRICE_4);
+        System.out.printf("Meat (8\") - $%.2f, Extra Meat - $%.2f\n", Pricing.EXTRA_MEAT_PRICE_8);
+        System.out.printf("Meat (12\") - $%.2f, Extra Meat - $%.2f\n", Pricing.EXTRA_MEAT_PRICE_12);
+
+        System.out.printf("Cheese (4\" - $%.2f, Extra Cheese - $%.2f\n", Pricing.CHEESE_PRICE_4, Pricing.EXTRA_CHEESE_PRICE_4);
+        System.out.printf("Cheese (8\" - $%.2f, Extra Cheese - $%.2f\n", Pricing.CHEESE_PRICE_8, Pricing.EXTRA_CHEESE_PRICE_8);
+        System.out.printf("Cheese (12\" - $%.2f, Extra Cheese - $%.2f\n", Pricing.CHEESE_PRICE_12, Pricing.EXTRA_CHEESE_PRICE_12);
+
+    }
+    
+        
+    System.out.println("\nRegular Toppins and Sauces:");
+    System.out.println("Included with Sandwich (lettuce, peppers, onions, tomatoes, etc.)");
+    }
+    
+    private void displayOtherProductPrices() {
+        System.out.println("\nOther Product Prices:");
+        System.out.printf("Small Drink - $%.2f\n", Pricing.DRINK_SMALL);
+        System.out.printf("Medium Drink - $%.2f\n", Pricing.DRINK_MEDIUM);
+        System.out.printf("Large Drink - $%.2f\n", Pricing.DRINK_LARGE);
+        System.out.printf("Chips - $%.2f\n", Pricing.CHIPS_PRICE);
     }
 
-    private void handleNewOrder() {
-        OrderScreen orderScreen = new OrderScreen();
-        orderScreen.startOrder();
-    }
+private void handleNewOrder() {
+    OrderScreen orderScreen = new OrderScreen();
+    orderScreen.startOrder();
+    
 }
 
