@@ -1,9 +1,9 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Receipt {
@@ -11,36 +11,35 @@ public class Receipt {
         String filename = "receipts/" + new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date()) + ".txt";
         try (FileWriter writer = new FileWriter(filename)) {
             writer.write("Order Receipt\n");
-            writer.write("Date: " + new SimpleDateFormat("yyyy--MM-dd HH:mm:ss").format(new Date()) + "\n");
-            writer.write("==========================\n");
+            writer.write("Date: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\n");
+            writer.write("------------------------\n");
 
             double total = 0;
 
-            for (Sandwich s : sandwiches) {
-                writer.write(s.toString() + "\n");
-                writer.write(" - Price: $" + s.getPrice() + "\n");
-                total += s.getPrice();
+            // Write sandwiches to receipt
+            for (Sandwich sandwich : sandwiches) {
+                writer.write(sandwich + " - $" + sandwich.calculatePrice() + "\n");
+                total += sandwich.calculatePrice();
             }
 
-            for (Drink d : drinks) {
-                writer.write(d.toString() + "\n");
-                writer.write(" - Price: $" + d.getPrice() + "\n");
-                total += d.getPrice();
+            // Write drinks to receipt
+            for (Drink drink : drinks) {
+                writer.write(drink + " - $" + drink.getPrice() + "\n");
+                total += drink.getPrice();
             }
 
-            for (Chips c : chips) {
-                writer.write(c.toString() + "\n");
-                writer.write(" - Price: $" + c.getPrice() + "\n");
-                total += c.getPrice();
+            // Write chips to receipt
+            for (Chips chip : chips) {
+                writer.write("Chips - $" + Pricing.getChipsPrice() + "\n");
+                total += Pricing.getChipsPrice();
             }
-            writer.write("-------------------------\n");
+
+            writer.write("------------------------\n");
             writer.write("Total Cost: $" + total + "\n");
-            writer.write("==========================");
+            writer.write("------------------------\n");
+
         } catch (IOException e) {
-        System.out.println("Failed to generate receipt ");
-
-
-
+            System.out.println("Failed to save receipt.");
         }
     }
 }

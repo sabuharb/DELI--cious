@@ -2,16 +2,17 @@ package com.pluralsight;
 
 public class Chips {
     private String type;
-    private double price = 1.50;
+
     public Chips(String type) {
         this.type = type;
     }
 
     public double getPrice() {
-        return price;
+        return Pricing.getChipsPrice();
     }
 
-    public void displayDetails() {
-        System.out.println("com.pluralsight.Chips type: " + type);
+    @Override
+    public String toString() {
+        return "Chips";
     }
 }

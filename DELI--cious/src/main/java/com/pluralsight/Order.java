@@ -8,84 +8,83 @@ public class Order {
     private ArrayList<Drink> drinks = new ArrayList<>();
     private ArrayList<Chips> chips = new ArrayList<>();
 
-    // Muestra articulos para ordenar y para checkout
-    public void showOrderMenu() {
+    public void startOrder() {
         Scanner scanner = new Scanner(System.in);
         boolean ordering = true;
 
-        while (ordering){
-            System.out.println("Order Menu:");
-            System.out.println("1) Add Sandwich");
-            System.out.println("2) Add Drink");
-            System.out.println("3) Add Chips");
-            System.out.println("4) Checkout");
-            System.out.println("Choose an option: ");
+        while (ordering) {
+            System.out.println("┍━━━━━━━━━━━━━━━━━»•» \uD83C\uDF3A«•«━┑");
+            System.out.println("   -ˏˋ⋆ ᴡ ᴇ ʟ ᴄ ᴏ ᴍ ᴇ ⋆ˊˎ-");
+            System.out.println("      to DELI--cious!\uD83D\uDC69\uD83C\uDFFB\u200D\uD83C\uDF73");
+            System.out.println("┕━»•» \uD83C\uDF3A«•«━━━━━━━━━━━━━━━━━;┙");
 
+            System.out.println("1) Add Sandwich\n2) Add Drink\n3) Add Chips\n4) Checkout\nChoose an option: ");
             int choice = scanner.nextInt();
-            switch (choice){
-                case 1:
-                    addSandwich();
-                    break;
-                case 2:
-                    addDrink();
-                    break;
-                case 3:
-                    addChips();
-                    break;
-                case 4:
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1 -> addSandwich(scanner);
+                case 2 -> addDrink(scanner);
+                case 3 -> chips.add(new Chips("Regular"));
+                case 4 -> {
                     displayOrderDetails();
-                    generateReceipt();
+                    saveReceipt();
                     ordering = false;
-                    break;
-                default:
-                    System.out.println("Invalid choice. Try again.");
+                }
+                default -> System.out.println("Invalid choice.");
             }
         }
     }
 
-    // Agrega el sandwich a la orden
-    private void addSandwich() {
-        ArrayList<Topping> toppings = new ArrayList<>();
-        toppings.add(new Topping("steak", true)); // Ejemplo de Premium
-        toppings.add(new Topping("letuce", false)); // Ejemplo de no Premium
+    private void addSandwich(Scanner scanner) {
+        System.out.println("Choose size: 1) 4\" 2) 8\" 3) 12\"");
+        int size = scanner.nextInt();
+        scanner.nextLine();
 
-        Sandwich sandwich = new Sandwich("8\"", "White", toppings, false); //pone la orden
-        sandwiches.add(sandwich);
-    }
-    private void addDrink() {
-        Drink drink = new Drink("Medium");
-        drinks.add(drink);
-    }
-    private void addChips(){
-        Chips chip = new Chips("Regular");
-        chips.add(chip);
+        System.out.println("Choose bread: 1) White 2) Wheat 3) Rye 4) Wrap");
+        String bread = switch (scanner.nextInt()) {
+            case 1 -> "White";
+            case 2 -> "Wheat";
+            case 3 -> "Rye";
+            case 4 -> "Wrap";
+            default -> "White";
+        };
+        scanner.nextLine();
+
+        System.out.println("Extra Meat? (y/n)");
+        boolean extraMeat = scanner.nextLine().equalsIgnoreCase("y");
+
+        System.out.println("Extra Cheese? (y/n)");
+        boolean extraCheese = scanner.nextLine().equalsIgnoreCase("y");
+
+        sandwiches.add(new Sandwich(size, bread, extraMeat, extraCheese));
     }
 
-    // Muestra detalles de la orden y Calcula el costo total
-    private void displayOrderDetails(){
+    private void addDrink(Scanner scanner) {
+        System.out.println("Choose drink size: 1) Small 2) Medium 3) Large");
+        int size = scanner.nextInt();
+        drinks.add(new Drink(size));
+    }
+
+    private void displayOrderDetails() {
         double total = 0;
         System.out.println("Order Summary:");
-
-        for (Sandwich s : sandwiches) {
-            s.displayDetails();
-            total += s.getPrice();
+        for (Sandwich sandwich : sandwiches) {
+            System.out.println(sandwich);
+            total += sandwich.calculatePrice();
         }
-
-        for (Drink d : drinks) {
-            d.displayDetails();
-            total += d.getPrice();
+        for (Drink drink : drinks) {
+            System.out.println(drink);
+            total += drink.getPrice();
         }
-
-        for (Chips c : chips) {
-            c.displayDetails();
-            total += c.getPrice();
+        for (Chips chip : chips) {
+            System.out.println("Chips - $" + Pricing.getChipsPrice());
+            total += Pricing.getChipsPrice();
         }
-
         System.out.println("Total Cost: $" + total);
     }
 
-    // Genera un recibo y lo guarda
-    private void generateReceipt() {
+    private void saveReceipt() {
         Receipt receipt = new Receipt();
         receipt.saveOrder(sandwiches, drinks, chips);
     }
