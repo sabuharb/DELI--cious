@@ -15,12 +15,17 @@ public class Main {
 
         while (running) {
             System.out.println("""
-                    Welcome to DELI--cious!;
+                    ┍━━━━━━━━━━━━━━━━━»•» 🌺«•«━┑;"
+                      -ˏˋ⋆ ᴡ ᴇ ʟ ᴄ ᴏ ᴍ ᴇ ⋆ˊˎ-
+                                to
+                             DELI--cious!👩🏻‍🍳
+                    ┕━»•» 🌺«•«━━━━━━━━━━━━━━━━━;┙"
+                    
                     1) New Order;
                     0) Exit;
                     
                     
-                    Select an option: ;""");
+                    Select an option:""");
 
             int choice = scanner.nextInt();
 

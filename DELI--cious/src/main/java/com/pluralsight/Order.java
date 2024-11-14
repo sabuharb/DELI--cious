@@ -12,16 +12,14 @@ public class Order {
     public void showOrderMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean ordering = true;
+
         while (ordering){
-            System.out.println("""
-                    Order Menu:;
-                    1) Add Sandwich;
-                    2) Add Drink;
-                    3) Add Chips;
-                    4) Checkout;
-                    
-                    Choose and option: ;
-                    """);
+            System.out.println("Order Menu:");
+            System.out.println("1) Add Sandwich");
+            System.out.println("2) Add Drink");
+            System.out.println("3) Add Chips");
+            System.out.println("4) Checkout");
+            System.out.println("Choose an option: ");
 
             int choice = scanner.nextInt();
             switch (choice){
