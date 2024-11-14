@@ -1,3 +1,5 @@
+package com.pluralsight;
+
 public class Chips {
     private String type;
     private double price = 1.50;
@@ -10,6 +12,6 @@ public class Chips {
     }
 
     public void displayDetails() {
-        System.out.println("Chips type: " + type);
+        System.out.println("com.pluralsight.Chips type: " + type);
     }
 }
