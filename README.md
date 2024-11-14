@@ -1,6 +1,6 @@
 Hello there,
 
-Welcome to the Deli-cious Order Management Application! This is a simple Java project that lets you build an order system for a deli where customers can order sandwiches, drinks, and chips. The program helps users pick their items, customize sandwiches, calculates prices automatically, and generates a receipt with all the details.
+Welcome to the Deli--cious Order Management Application! This is a simple Java project that lets you build an order system for a deli where customers can order sandwiches, drinks, and chips. The program helps users pick their items, customize sandwiches, calculates prices automatically, and generates a receipt with all the details.
 
 Each part of the program is divided into classes, making it easier to understand and manage. Here’s a breakdown of how everything works.
 
