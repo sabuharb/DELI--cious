@@ -45,7 +45,11 @@ public class Order {
 
     // Agrega el sandwich a la orden
     private void addSandwich() {
-        Sandwich sandwich = new Sandwich("8\"", "White", new ArrayList<>(), false); //pone la orden
+        ArrayList<Topping> toppings = new ArrayList<>();
+        toppings.add(new Topping("steak", true)); // Ejemplo de Premium
+        toppings.add(new Topping("letuce", false)); // Ejemplo de no Premium
+
+        Sandwich sandwich = new Sandwich("8\"", "White", toppings, false); //pone la orden
         sandwiches.add(sandwich);
     }
     private void addDrink() {
