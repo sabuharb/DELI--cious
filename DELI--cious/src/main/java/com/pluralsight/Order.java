@@ -12,7 +12,7 @@ public class Order {
     public void showOrderMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean ordering = true;
-        while (){
+        while (ordering){
             System.out.println("""
                     Order Menu:;
                     1) Add Sandwich;
@@ -47,7 +47,7 @@ public class Order {
 
     // Agrega el sandwich a la orden
     private void addSandwich() {
-        Sandwich sandwich = new Sandwich("8\"", "White," new ArrayList<>(), false); //pone la orden
+        Sandwich sandwich = new Sandwich("8\"", "White", new ArrayList<>(), false); //pone la orden
         sandwiches.add(sandwich);
     }
     private void addDrink() {

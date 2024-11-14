@@ -18,7 +18,7 @@ public class Sandwich {
 
     // Dertermina el precio del muy sandwich basado en el tamanio
     public double getPrice() {
-        double price = 0
+        double price = 0;
         switch (size) {
             case "4\"": return 5.50;
             case "8\"": return 7.00;
@@ -28,6 +28,6 @@ public class Sandwich {
     }
 
     public void displayDetails(){
-        System.out.println(size + " sandwich on " + bread + " with toppings: " toppings);
+        System.out.println(size + " sandwich on " + bread + " with toppings: " + toppings);
     }
 }
