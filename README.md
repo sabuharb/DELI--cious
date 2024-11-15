@@ -40,7 +40,7 @@ Placing Your Order & Checking Out 🛒
 Once you’re all set, head to checkout! You’ll get a summary of everything you ordered, along with a total price. Your receipt will be saved so you can come back anytime and remember that awesome combo you created.
 
 Screenshots 📸
-Here’s a little peek at DELI--cious in Cic Zac Mode action to read it Start on the Left then go right then go straight down, then go right again, and repeat!
+Here’s a little peek at DELI--cious in zic Zac Mode action to read it so Start on the Left then go right then go straight down, then go right again, and repeat!
 
 <img width="351" alt="1stDisplay" src="https://github.com/user-attachments/assets/3a43ba99-ae7d-4420-bb81-bc65a731cdf8">
 
