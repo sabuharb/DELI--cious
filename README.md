@@ -1,6 +1,9 @@
 Welcome to DELI--cious! 🌸🍽️
+
 Hey there! 
+
 Thanks for checking out DELI--cious!
+
 A command-line app where you can build your dream meal, one choice at a time. 
 Whether you're craving a custom sandwich piled high with your favorite toppings or a signature classic, DELI--cious has you covered. 
 Let's dive in and see what tasty options are waiting!
