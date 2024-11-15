@@ -69,10 +69,10 @@ public class Order {
             System.out.print(prompt);
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
+                scanner.nextLine(); //
             } else {
                 System.out.println("❌ Invalid input. Please enter a number between " + min + " and " + max + ".");
-                scanner.next(); // Clear invalid input
+                scanner.next(); //
             }
         }
         return choice;
