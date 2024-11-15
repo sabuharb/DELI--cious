@@ -1,18 +1,17 @@
 package com.pluralsight;
 
 public class Chips {
-    private String type;
+    private String flavor;
 
-    public Chips(String type) {
-        this.type = type;
+    public Chips(String flavor) {
+        this.flavor = flavor;
     }
 
     public double getPrice() {
         return Pricing.getChipsPrice();
     }
 
-    @Override
-    public String toString() {
-        return "Chips";
+    public String getFlavor() {
+        return flavor;
     }
 }

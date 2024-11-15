@@ -1,45 +1,64 @@
 package com.pluralsight;
 
-import java.util.ArrayList;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Receipt {
+    private static final String BUSINESS_NAME = "DELI--cious";
+
     public void saveOrder(ArrayList<Sandwich> sandwiches, ArrayList<Drink> drinks, ArrayList<Chips> chips) {
-        String filename = "receipts/" + new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date()) + ".txt";
+        String directoryPath = "receipts";
+        String filename = directoryPath + "/" + new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date()) + "-Order.txt";
+
+        // Create the receipts directory if it does not exist
+        File directory = new File(directoryPath);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
         try (FileWriter writer = new FileWriter(filename)) {
-            writer.write("Order Receipt\n");
-            writer.write("Date: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\n");
-            writer.write("------------------------\n");
+            writer.write("🍽️ Welcome to " + BUSINESS_NAME + " 🍽️\n");
+            writer.write("🧾 Order Receipt\n");
+            writer.write("📅 Date: " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "\n");
+            writer.write("--------------------------------------------------\n");
 
             double total = 0;
 
-            // Write sandwiches to receipt
+            // Write Sandwich details
             for (Sandwich sandwich : sandwiches) {
-                writer.write(sandwich + " - $" + sandwich.calculatePrice() + "\n");
+                writer.write("🥪 " + sandwich.toString() + " - $" + sandwich.calculatePrice() + "\n");
                 total += sandwich.calculatePrice();
             }
 
-            // Write drinks to receipt
+            // Write Drink details
             for (Drink drink : drinks) {
-                writer.write(drink + " - $" + drink.getPrice() + "\n");
+                writer.write("🥤 Drink: " + drink.getFlavor() + " (" + drink.getSizeString() + ") - $" + drink.getPrice() + "\n");
                 total += drink.getPrice();
             }
 
-            // Write chips to receipt
+            // Write Chips details
             for (Chips chip : chips) {
-                writer.write("Chips - $" + Pricing.getChipsPrice() + "\n");
-                total += Pricing.getChipsPrice();
+                writer.write("🍟 Chips Flavor: " + chip.getFlavor() + " - $" + chip.getPrice() + "\n");
+                total += chip.getPrice();
             }
 
-            writer.write("------------------------\n");
-            writer.write("Total Cost: $" + total + "\n");
-            writer.write("------------------------\n");
+            writer.write("--------------------------------------------------\n");
+            writer.write(String.format("💳 Total: $%.2f\n", total));
+            writer.write("--------------------------------------------------\n\n");
+
+            // Thank you message
+            writer.write("🙏 Thank you for choosing " + BUSINESS_NAME + "! 🙏\n");
+            writer.write("🌟 Hope to see you back soon! 🌟\n");
+            writer.write("😊 Have a Nice Day! 😊\n");
+
+            System.out.println("📄 Receipt saved successfully! Check the 'receipts' folder.");
 
         } catch (IOException e) {
-            System.out.println("Failed to save receipt.");
+            System.out.println("❌ Failed to save receipt.");
         }
     }
 }

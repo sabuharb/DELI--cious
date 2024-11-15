@@ -1,19 +1,27 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Sandwich {
     private int size; // 1 = 4", 2 = 8", 3 = 12"
     private String bread;
-    private boolean extraMeat;
-    private boolean extraCheese;
+    private ArrayList<String> meats;
+    private ArrayList<String> cheeses;
+    private ArrayList<String> veggies;
+    private boolean toasted;
+    private String sauce = ""; // Optional sauce for signature sandwiches
 
-    public Sandwich(int size, String bread, boolean extraMeat, boolean extraCheese) {
+    public Sandwich(int size, String bread, ArrayList<String> meats, ArrayList<String> cheeses, ArrayList<String> veggies, boolean toasted) {
         this.size = size;
         this.bread = bread;
-        this.extraMeat = extraMeat;
-        this.extraCheese = extraCheese;
+        this.meats = meats;
+        this.cheeses = cheeses;
+        this.veggies = veggies;
+        this.toasted = toasted;
+    }
+
+    public void addSauce(String sauce) {
+        this.sauce = sauce;
     }
 
     public double calculatePrice() {
@@ -24,29 +32,45 @@ public class Sandwich {
             default -> 0;
         };
 
-        if (extraMeat) {
-            price += switch (size) {
-                case 1 -> Pricing.getExtraMeatPrice4Inch();
-                case 2 -> Pricing.getExtraMeatPrice8Inch();
-                case 3 -> Pricing.getExtraMeatPrice12Inch();
-                default -> 0;
-            };
-        }
-
-        if (extraCheese) {
-            price += switch (size) {
-                case 1 -> Pricing.getCheesePrice4Inch();
-                case 2 -> Pricing.getCheesePrice8Inch();
-                case 3 -> Pricing.getCheesePrice12Inch();
-                default -> 0;
-            };
-        }
+        // Add premium prices for each topping
+        price += meats.size() * Pricing.getExtraMeatPrice(size);
+        price += cheeses.size() * Pricing.getCheesePrice(size);
 
         return price;
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public String getBread() {
+        return bread;
+    }
+
+    public ArrayList<String> getMeats() {
+        return meats;
+    }
+
+    public ArrayList<String> getCheeses() {
+        return cheeses;
+    }
+
+    public ArrayList<String> getVeggies() {
+        return veggies;
+    }
+
+    public boolean isToasted() {
+        return toasted;
+    }
+
+    public String getSauce() {
+        return sauce;
+    }
+
     @Override
     public String toString() {
-        return size + "\" " + bread + " Sandwich (Extra Meat: " + extraMeat + ", Extra Cheese: " + extraCheese + ")";
+        return String.format("%d-inch %s Sandwich\nMeats: %s\nCheeses: %s\nVeggies: %s\nToasted: %s\nSauce: %s",
+                size, bread, String.join(", ", meats), String.join(", ", cheeses),
+                String.join(", ", veggies), toasted ? "Yes" : "No", sauce);
     }
 }

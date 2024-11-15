@@ -1,0 +1,19 @@
+🍽️ Welcome to DELI--cious 🍽️
+🧾 Order Receipt
+📅 Date: 2024-11-15 06:12:27
+--------------------------------------------------
+🥪 1-inch White Sandwich
+Meats: Chicken
+Cheeses: 
+Veggies: Jalapenos
+Toasted: Yes
+Sauce:  - $6.0
+🥤 Drink: Cola (Small) - $2.0
+🍟 Chips Flavor: Barbecue - $1.5
+--------------------------------------------------
+💳 Total: $9.50
+--------------------------------------------------
+
+🙏 Thank you for choosing DELI--cious! 🙏
+🌟 Hope to see you back soon! 🌟
+😊 Have a Nice Day! 😊
