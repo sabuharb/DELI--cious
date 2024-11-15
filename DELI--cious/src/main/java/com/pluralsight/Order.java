@@ -34,7 +34,7 @@ public class Order {
                     2) ⭐ Add Signature Sandwich
                     3) 🥤 Add Drink
                     4) 🍟 Add Chips
-                    5) 💳 Checkout
+                    5) 💳 Checkout/ Pay
                     6) 📜 View Order History
                     ---------------------------------
                  
